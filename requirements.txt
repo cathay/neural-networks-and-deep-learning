@@ -1,4 +1,5 @@
 numpy
+six
 scikit-learn
 scipy
 Theano
