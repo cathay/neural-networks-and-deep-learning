@@ -59,5 +59,6 @@ print a.reshape(a.shape[0], -1).T
 #c = a + b
 #print c
 
-c = np.zeros((3,1))
-print c.shape
+c = np.array([1, 1, 2])
+
+print np.log(c)
