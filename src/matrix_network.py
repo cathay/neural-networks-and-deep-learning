@@ -61,4 +61,4 @@ print a.reshape(a.shape[0], -1).T
 
 c = np.array([1, 1, 2])
 
-print np.log(c)
+print np.random.randn(4,2)
