@@ -46,6 +46,12 @@ def sigmoid_prime(z):
     """Derivative of the sigmoid function."""
     return sigmoid(z)*(1-sigmoid(z))
 
+def softmax(w):
+    e = np.exp(w)
+    return e / np.sum(e)
+
+print softmax(np.array([1, -2, 0.5]))
+
 
 #nets = MatrixNetwork([2, 3, 1])
 #input1 = np.array([[1,1]]).transpose()
@@ -53,12 +59,31 @@ def sigmoid_prime(z):
 #nets.feedforward(input1)
 a = np.random.randn(2, 3) # a.shape = (2, 3)
 b = np.random.randn(4, 1) # b.shape = (2, 1)
-print a
-print a.reshape(a.shape[0], -1).T
+#print a
+#print a.reshape(a.shape[0], -1).T
 #print b
 #c = a + b
 #print c
 
-c = np.array([1, 1, 2])
+c = np.array([
+        [0,0],
+        [1,0],
+        [2.61,-1.28],
+        [-0.59,2.1]
+    ])
 
-print np.random.randn(4,2)
+print c.shape[0]
+X_expanded = np.zeros((c.shape[0], 6))
+
+print X_expanded.shape[1]
+print c[2][1]
+print c[2,1]
+for i in range(c.shape[0]):
+    X_expanded[i,0] = c[i][0]
+    X_expanded[i,1] = c[i][1]
+    X_expanded[i,2] = X_expanded[i,0] * X_expanded[i,0]
+    X_expanded[i,3] = X_expanded[i,1] * X_expanded[i,1]
+    X_expanded[i,4] = X_expanded[i,0] * X_expanded[i,1]
+    X_expanded[i,5] = 1
+
+print X_expanded
